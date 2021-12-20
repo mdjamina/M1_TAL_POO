@@ -1,0 +1,76 @@
+
+/********************* Projet de fin de semestre *******************************
+Écriture d'Assistant écrit simplifié en c++ avec une machine de rendue de monnaie
+*******************************************************************************/
+
+Instructions:*-----------------------------------------------------------------
+1-Écrire un programme dynamique et simplifié en utilisant les fonctions.
+2-Bien commenter votre programme. Utilisez les notions vues en cours.
+3-C'est un programme à plusieurs solutions possibles. Copiage et solutions
+identiques seront sanctionnés.
+3-Vous avez le doit à la documentation.
+4-Vous etes jugé sur votre capacité de résoudre un problème algorithmique.
+5- le projet doit être rendu par mail ou sur Moodle
+en un seul fichier avec votre nom_prénom sur le nom
+sur fichier. Deadline 14 janvier 2022 à 12h.
+
+_-------------------------------------------------------------------------------
+
+Structure du devoir:*-----------------------------------------------------------
+Deux parties dans le projet: notation 10 pts pour chaque partie.
+
+1-Créer un assistant écrit pour un achat de tickets de jeux
+ d'attraction selon la limite des options ci-dessous.
+
+2-Cet assistant demande un programme de rendu de monnaie.
+
+
+3-Le projet peut contenir des étapes mineures implicites et des suites logiques
+non mentionnées dans les instructions.
+A vous donc de les retrouvez et de les écrire pour un bon fonctionnement.
+Le projet contient de nombreuses conditions à gérer (if et switch).
+Il faut donc faire attention aux accolades pour un fonctionnement correcte.
+Vous pouvez personnaliser les inputs et outputs.
+
+
+A-Arbre de choix et conditions:
+
+Niveau 0 : menu principal
+Niveau 1 : choisir deux options: un jeux ou un spectacle.
+Niveau 2a : choix de attractions: manège, stand de tire.
+Niveau 2b : Spectacle soir ou midi.
+Niveau 3a : attraction: billet quantité(1-5), carnet de 5 billets
+Niveau 4a : afficher prix : billet J (1.30e)*quantité saisie, carnet J(5e)
+Niveau 4b : prix : Billet M(2.20e), billet S(2.50)
+
+Le programme ne contient pas les options "retour sur niveau" et remboursement
+de billet.
+
+Paiement et rendu de monnaie: affichez la somme du billet.
+Les billets acceptées: 10, 20 et 5e.
+La machine n'accepte pas la monnaie mais en rend.
+Calcul de rendu de monnaie.
+
+
+Ci-dessous le macro schéma attendu:
+
+                          Bienvenu: choisissez une attraction
+                            /  \
+                           /    \
+                          /      \
+                      Jeux     Spectacles
+                      /   |           /\
+                    /     |          /  \
+                  1       2        midi  soir
+                  \      /          |     |
+                 1-5, carnet   billet M   S
+                         Montant du billet
+                            ||
+                            ||
+                      dynamic wallet
+                 billet accepté 5, 10 et 20e
+                            ||
+                    Rendu de monnaie
+
+
+Bon courage !
