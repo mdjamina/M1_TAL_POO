@@ -77,10 +77,10 @@ public:
         
     }
 	
-	int ajouterOption(string nom){
+	int ajouterOption(Programme option){
 		int id = this->options.size() + 1;
 		
-		this->options.emplace(id,Programme(nom));
+		this->options.emplace(id,option);
 		
 		return id;
 	}
@@ -117,10 +117,10 @@ public:
 
     }
 	
-	int ajouterOption(string nom){
+	int ajouterOption(Attraction option){
 		int id = this->options.size() + 1;
 		
-		this->options.emplace(id,Attraction(nom));
+		this->options.emplace(id,option);
 		
 		return id;
 	}
@@ -130,7 +130,7 @@ public:
 		std::map<int,Attraction>::iterator i;
 		for ( i=this->options.begin() ;i!=this->options.end(); ++i){
 
-            cout<< "Choix n° " << i->first << " : [" << i->second.nom << " ]"<< endl;
+            cout<< "Choix n° " << i->first << " : [ " << i->second.nom << " ]"<< endl;
 			
 	    }
     }
@@ -142,7 +142,7 @@ public:
 	}
 };
 
-
+void construireParc(Parc&);
 
 
 int main(int argc, char **argv)
@@ -150,23 +150,67 @@ int main(int argc, char **argv)
 
     cout << "hello" << endl;
 
-
-    Programme p("manège");
-
-    
-
-    p.ajouterOption("Billet de 1-5", 1.3);
-		
-	p.ajouterOption("Carnet de 5 billets", 5.0);
+	Parc parc("Parc");
 
 
-    p.afficherOptions();
+	construireParc(parc);
+	
+	
+	parc.afficherOptions();
 
 
-    cout << "fin" << endl;
+    cout << "fin 3" << endl;
 
 
 	
 	return 0;
 }
 
+
+
+
+void construireParc(Parc& parc){
+
+	cout<< "init" <<endl;
+	
+	Attraction att1("Jeu");
+	
+	Programme p11("manège");
+    p11.ajouterOption("Billet de 1-5", 1.3);
+	p11.ajouterOption("Carnet de 5 billets", 5.0);
+
+	att1.ajouterOption(p11);
+	
+	Programme p12("stand de tire");
+    p12.ajouterOption("Billet de 1-5", 1.3);
+	p12.ajouterOption("Carnet de 5 billets", 5.0);
+
+	att1.ajouterOption(p12);
+
+
+	//att1.afficherOptions();
+	
+	
+	parc.ajouterOption(att1);
+	
+	
+	Attraction att2("Spectacle");
+	
+	Programme p21("Spectacle");
+    p21.ajouterOption("Billet M", 2.2);
+	p21.ajouterOption("Billet S", 2.5);
+
+	att2.ajouterOption(p21);
+
+	
+	parc.ajouterOption(att2);
+	
+	
+	//parc.afficherOptions();
+	
+	
+	
+	
+	
+	
+}
