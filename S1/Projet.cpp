@@ -21,7 +21,6 @@ public:
 
 };
 
-
 class Programme {
 public:
 	string nom;
@@ -85,8 +84,6 @@ public:
 	}
 };
 
-
-
 class Parc {
 public:
 	string nom;
@@ -133,9 +130,7 @@ void caisse(Parc& parc){
 
 		parc.afficherOptions();
 
-
 		cin >> select;
-
 	}
 	else if (opt_size == 1){
 		select = 1;
@@ -144,14 +139,7 @@ void caisse(Parc& parc){
 		return;
 	}
 
-	
-
-	
-
 	Attraction attraction = parc.SelectOption(select);
-	
-	
-	
 	
 	opt_size = attraction.options.size();
 
@@ -161,11 +149,7 @@ void caisse(Parc& parc){
 
 		attraction.afficherOptions();
 
-
 		cin >> select;
-		
-		
-
 	}
 	else if (opt_size == 1){
 		select = 1;
@@ -174,11 +158,7 @@ void caisse(Parc& parc){
 		return;
 	}
 
-
-
 	Programme prog = attraction.SelectOption(select);
-	
-	
 
 	opt_size = prog.options.size();
 
@@ -188,9 +168,7 @@ void caisse(Parc& parc){
 
 		prog.afficherOptions();
 
-
 		cin >> select;
-
 	}
 	else if (opt_size == 1){
 		select = 1;
@@ -198,8 +176,6 @@ void caisse(Parc& parc){
 	else{
 		return;
 	}
-
-
 
 	Tarif tarif = prog.SelectOption(select);
 	
@@ -213,16 +189,12 @@ void caisse(Parc& parc){
 	
 	double prix = quantite * tarif.tarif;
 	
-	
 	cout << "Total à payé:" << prix << "€" <<endl;
-	
 	
 	cout << "Les billets acceptées: 10, 20 et 5e." << endl;
 	
 	cout << "La machine n'accepte pas la monnaie mais en rend." << endl;
-	
-	
-	
+
 	int billet(1);
 	
 	cin >> billet;
@@ -232,19 +204,11 @@ void caisse(Parc& parc){
 	double monnaie = billet - prix;
 	
 	cout << "Voici la monnaie: " << monnaie << endl;
-	
-
-	
-
-
-
 
 }
 
-
 int main(int argc, char **argv)
 {
-
 	cout << "hello" << endl;
 
 	Parc parc("Parc");
@@ -257,9 +221,6 @@ int main(int argc, char **argv)
 	
 	return 0;
 }
-
-
-
 
 void construireParc(Parc& parc){
 
@@ -279,13 +240,10 @@ void construireParc(Parc& parc){
 
 	att1.ajouterOption(p12);
 
-
 	//att1.afficherOptions();
-	
-	
+
 	parc.ajouterOption(att1);
-	
-	
+
 	Attraction att2("Spectacle");
 	
 	Programme p21("Spectacle");
@@ -293,11 +251,9 @@ void construireParc(Parc& parc){
 	p21.ajouterOption("Billet S", 2.5);
 
 	att2.ajouterOption(p21);
-
 	
 	parc.ajouterOption(att2);
 	
-	
 	//parc.afficherOptions();
-	
+
 }
