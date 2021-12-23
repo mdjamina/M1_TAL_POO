@@ -137,6 +137,126 @@ public:
 
 void construireParc(Parc&);
 
+void caisse(Parc& parc){
+
+	int select;
+
+	cout << "Bienvenu: choisissez une attraction" << endl;
+
+	int opt_size = parc.options.size();
+
+	if ( opt_size > 1){
+
+		parc.afficherOptions();
+
+
+		cin >> select;
+
+	}
+	else if (opt_size == 1){
+		select = 1;
+	}
+	else{
+		return;
+	}
+
+	
+
+	
+
+	Attraction attraction = parc.SelectOption(select);
+	
+	
+	
+	
+	opt_size = attraction.options.size();
+
+	if ( opt_size > 1){
+		
+		cout << "Vous avez choisi: " << attraction.nom << endl;
+
+		attraction.afficherOptions();
+
+
+		cin >> select;
+		
+		
+
+	}
+	else if (opt_size == 1){
+		select = 1;
+	}
+	else{
+		return;
+	}
+
+
+
+	Programme prog = attraction.SelectOption(select);
+	
+	
+
+	opt_size = prog.options.size();
+
+	if ( opt_size > 1){
+		
+		cout << "Vous avez choisi: " << prog.nom << endl;
+
+		prog.afficherOptions();
+
+
+		cin >> select;
+
+	}
+	else if (opt_size == 1){
+		select = 1;
+	}
+	else{
+		return;
+	}
+
+
+
+	Tarif tarif = prog.SelectOption(select);
+	
+	cout << "Vous avez choisi: " << tarif.nom << endl;
+	
+	cout << "Entrez la quantité" << endl;
+	
+	int quantite(1);
+	
+	cin >> quantite;
+	
+	double prix = quantite * tarif.tarif;
+	
+	
+	cout << "Total à payé:" << prix << "€" <<endl;
+	
+	
+	cout << "Les billets acceptées: 10, 20 et 5e." << endl;
+	
+	cout << "La machine n'accepte pas la monnaie mais en rend." << endl;
+	
+	
+	
+	int billet(1);
+	
+	cin >> billet;
+	
+	cout << "Calcul de rendu de monnaie." << endl;
+	
+	double monnaie = billet - prix;
+	
+	cout << "Voici la monnaie: " << monnaie << endl;
+	
+
+	
+
+
+
+
+}
+
 
 int main(int argc, char **argv)
 {
@@ -145,16 +265,11 @@ int main(int argc, char **argv)
 
 	Parc parc("Parc");
 
-
 	construireParc(parc);
 	
-	
-	parc.afficherOptions();
-
+	caisse(parc);
 
     cout << "fin 3" << endl;
-
-
 	
 	return 0;
 }
