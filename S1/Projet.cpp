@@ -18,7 +18,6 @@ public:
         this->nom = nom;
         this->tarif = tarif;
     }
-
   
 };
 
@@ -33,7 +32,6 @@ public:
 
 	Programme(string nom){
         this->nom = nom;
-        //this->options = new std::map<int, Tarif>();
     }
 	
 	int ajouterOption(string nom,double tarif){
@@ -71,9 +69,6 @@ public:
 	Attraction(string nom){
 
         this->nom = nom;
-        //this->options = new std::map<int, Programme>::map();
-
-
         
     }
 	
@@ -113,9 +108,7 @@ public:
 
     Parc( string nom){
        this->nom = nom;
-       // this->options = new std::map<int, Attraction>();
-
-    }
+     }
 	
 	int ajouterOption(Attraction option){
 		int id = this->options.size() + 1;
@@ -207,10 +200,5 @@ void construireParc(Parc& parc){
 	
 	
 	//parc.afficherOptions();
-	
-	
-	
-	
-	
 	
 }
