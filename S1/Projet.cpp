@@ -10,9 +10,6 @@
 #include <iostream>
 #include <map>
 using namespace std;
-/*
- * Class Tarif
- */
 
 /*
  * construireParc : procédure permet d'initialiser un parc
