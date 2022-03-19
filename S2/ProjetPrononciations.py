@@ -1,6 +1,12 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+"""
+Amina DJARFI MELOUAH
+
+Projet–génération des prononciations automatiques
+"""
+
 import sys
 import re
 
