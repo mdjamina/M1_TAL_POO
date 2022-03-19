@@ -25,28 +25,66 @@ class Tokenizer:
         return sorted({w:self.words.count(w) for w in self.words}.items(), key=lambda x: x[1], reverse=True)
 
 
+class Prononciation(Tokenizer):
+
+
+    def load_dict_prono(self,path_dict_file):
+        self.dict_prono = {}
+
+        with open(path_dict_file,'r') as fdict:
+            for line in fdict:
+                row = line.split()
+                k = row[0]
+                v = row[1]
+                if k not in self.dict_prono.keys():
+                    self.dict_prono[k] = v
+    
+    def prononciation(self):
+        """retourne la liste des mots prononcés
+        """
+        for w in set(self.tokens()):
+            if w in self.dict_prono.keys():
+                yield (w,self.dict_prono[w]) 
+
+    def prononciation_text(self):
+        """retourne le texte en prononciation
+        """
+        return ' '.join([w for _,w in self.prononciation()])
+
+
 
 def main():
+    """
+    Exemple:
+    python3 ProjetPrononciations.py basique-pron_dico.dic FRA00101_T2FSL.txt >result.txt
+    
+    """
     args = sys.argv[1:]
 
+    dict_prono_path = args[0]
 
-    text = """
-    veillée nombre innombrable hiver être maison ...  train prêcher petiot — criait-elle dépêcher balayer 
-    maison  pomme matin prendre 
-    couvet emplis-le habile habile désirer  terluit comme dos citrouille frotte frotte là faire  ménager|ménagère voilà 
-     saint-brunelle mirer armoire noyer .
-    fieu père roux berger oreille être avis pourtant bassette être raboter genre planche défunt père être charron ne être pas...
-    j'ai un porte-feuille
-    test quelqu'un et qu'il y'a
+    file_path= args[1]
+
+
+    with open(file_path,'r') as filein:
+        text = filein.read()
+
+
+    pron = Prononciation(text)
+
+    pron.load_dict_prono(dict_prono_path)
+
+    """
+
+    
+    for (k,w) in pron.prononciation():
+        print('{0} --> {1}'.format(k,w))
+
     """
 
 
-    toknzer = Tokenizer(text)
-
-
-    print(toknzer.distrib())
-
-
+    #print(pron.text)    
+    print(pron.prononciation_text())
 
 if __name__ == '__main__':
 
