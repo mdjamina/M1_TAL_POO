@@ -30,7 +30,15 @@ def main():
     args = sys.argv[1:]
 
 
-    text = "Bonjour! je suis ravi de faire faire ta co-and, merci? J'aime. mots-compo. faire avance-t-il. aujourd'hui. Qu'il y'a"
+    text = """
+    veillée nombre innombrable hiver être maison ...  train prêcher petiot — criait-elle dépêcher balayer 
+    maison  pomme matin prendre 
+    couvet emplis-le habile habile désirer  terluit comme dos citrouille frotte frotte là faire  ménager|ménagère voilà 
+     saint-brunelle mirer armoire noyer .
+    fieu père roux berger oreille être avis pourtant bassette être raboter genre planche défunt père être charron ne être pas...
+    j'ai un porte-feuille
+    test quelqu'un et qu'il y'a
+    """
 
 
     toknzer = Tokenizer(text)
